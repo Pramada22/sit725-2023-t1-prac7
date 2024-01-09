@@ -20,25 +20,25 @@ const formSumitted = () => {
     formData.description = $('#description').val();
 
     console.log(formData);
-    postCat(formData);
+    postTeddy(formData);
 }
 
-function postCat(cat) {
+function postTeddy(teddy) {
     $.ajax({
-        url:'/api/cat',
+        url:'/api/teddy',
         type:'POST',
-        data:cat,
+        data:teddy,
         success: (result) => {
             if (result.statusCode === 201) {
-                alert('cat posted');
+                alert('teddy posted');
                 location.reload();
             }
         }
     });
 }
 
-function getAllCats() {
-    $.get('/api/cat',(result)=>{
+function getAllTeddys() {
+    $.get('/api/teddy',(result)=>{
         if (result.statusCode === 200) {
             addCards(result.data);
         }
@@ -56,6 +56,6 @@ $(document).ready(function(){
         formSumitted();
     });
     $('.modal').modal();
-    getAllCats();
+    getAllTeddys();
     console.log('ready');
 });

@@ -1,29 +1,29 @@
-let collection = require('../models/cat');
+let collection = require('../models/teddy');
 
-const postCat = (req,res) => {
-    let cat = req.body;
-    collection.postCat(cat, (err,result) => {
+const postTeddy = (req,res) => {
+    let teddy = req.body;
+    collection.postTeddy(teddy, (err,result) => {
         if (!err) {
             res.json({statusCode:201,data:result,message:'success'});
         }
     });
 }
 
-const getAllCats = (req,res) => {
-    collection.getAllCats((error,result)=>{
+const getAllTeddys = (req,res) => {
+    collection.getAllTeddys((error,result)=>{
         if (!error) {
             res.json({statusCode:200,data:result,message:'success'});
         }
     });
 }
 
-const deleteCat = (req,res) => {
-    let cat = req.body;
-    collection.deleteOne(cat, (err,result) => {
+const deleteTeddy = (req,res) => {
+    let teddy = req.body;
+    collection.deleteOne(teddy, (err,result) => {
         if (!err) {
             res.json({statusCode:201,data:result,message:'success'});
         }
     });
 }
 
-module.exports = {postCat,getAllCats}
+module.exports = {postTeddy,getAllTeddys}
